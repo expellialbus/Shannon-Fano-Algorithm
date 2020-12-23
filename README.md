@@ -92,7 +92,7 @@ To execute **Decode.java** file, write following commands on your command line:
 Compile command:
 
 ```
-javac Decode.javac
+javac Decode.java
 ```
 
 Execute command:
