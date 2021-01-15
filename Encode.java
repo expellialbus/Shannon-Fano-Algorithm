@@ -40,7 +40,7 @@ public class Encode
             operation.writeFile (encode.__encoding (line) , "encoded.txt") ;
         }
 
-        // Frequency list is wroten to the codes file as array list.
+        // Frequency list is written to the codes file as array list.
 
         operation.writeCodes (encode.__frequencies , "codes.bin") ;
 
