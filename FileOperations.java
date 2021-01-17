@@ -100,7 +100,7 @@ public class FileOperations
         }
     }
 
-    public ArrayList readCodes (String file_name)
+    public ArrayList<Node<Character, Integer>> readCodes (String file_name)
     {
         /**
          * This method reads array list to the file which determined as parameter.
