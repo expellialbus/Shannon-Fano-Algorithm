@@ -75,43 +75,6 @@ public class FileOperations
         }
     }
 
-    public void writeByte(byte value, String fileName) {
-        /**
-         * This method writes a decoded byte to specified file
-         */
-
-        try (FileOutputStream output = new FileOutputStream(fileName, true)) { // the true parameter passed for append new byte to
-            output.write(value);                                                       // end of file, if it doesn't pass, the content of file will deleted
-        } catch (IOException ex) {                                                     // and new byte will written top of file as if file was created again
-            System.out.println("Could not written to " + fileName + ".!");
-            ex.printStackTrace();
-        }
-    }
-
-    public int readByte(String fileName) {
-        /**
-         * This method reads a decoded byte from specified file
-         */
-
-        if (FileOperations.byteInput == null) {
-            try {
-                FileOperations.byteInput = new FileInputStream(fileName);
-            } catch (IOException ex) {
-                System.out.println(fileName + " not found.!");
-                ex.printStackTrace();
-            }
-        }
-
-        try {
-            return FileOperations.byteInput.read();
-        } catch (IOException ex) {
-            System.out.println("Could not read from " + fileName + ".!");
-            ex.printStackTrace();
-        }
-
-        return -1;
-    }
-
     public void writeCodes (ArrayList <Node <Character , Integer>> list , String file_name)
     {
         /**
