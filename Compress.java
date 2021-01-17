@@ -13,7 +13,7 @@ public class Compress {
         FileOperations operations = new FileOperations();
 
         reference = operations.openFile("encoded.txt");
-
+        
         while ((line = operations.readFile(reference)) != null) {
             for (byte i: compress(line)) {
                 operations.writeByte(i, "compressed.txt");
@@ -25,16 +25,16 @@ public class Compress {
         ArrayList<Byte> bytes = new ArrayList<Byte>();
         String codeByte = "";
         boolean flag = true;
-        byte[] sum = new byte[2];
+        byte[] sum = null;
 
-        for (int i = 1; i <= line.length(); i++) {
-            if (i % 9 != 0) {
-                codeByte += Character.toString(line.charAt(i - 1));
+        for (int i = 0; i < line.length(); i++) {
+            if (i % 8 != 0 || i == 0) {
+                codeByte += Character.toString(line.charAt(i));
                 flag = true;
             } else {
                 sum = compressHelper(codeByte);
                 bytes.add(sum[0]);
-                codeByte = Character.toString(line.charAt(i - 1));
+                codeByte = Character.toString(line.charAt(i));
                 flag = false;
             }
         }
@@ -62,8 +62,8 @@ public class Compress {
             }
         }
 
-        if (length != 8) {
-            sum[1] = (byte) (8 - length);
+        if (length != 8 && length != 0) {
+            sum[1] = (byte) (length);
         }
 
         return sum;
